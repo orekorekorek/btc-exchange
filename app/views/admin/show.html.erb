@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="panel-body panel-height">
+      <table class="table table-striped table-responsive table-bordered">
+       <thead>
+        <h6>Statistics</h6>
+        <tr>
+          <th>Total Exchange Fee</th>
+          <th>Total Transactions</th>
+          <th>Total Success Transactions</th>
+        </tr>
+       </thead>
+       <tbody>
+          <tr>
+            <td><%= @success_transactions.sum(:exchange_fee) %></td>
+            <td><%= @transactions.count %></td>
+            <td><%= @success_transactions.count %></td>
+          </tr>
+       </tbody>
+      </table>
+    </div>
+
+    <div class="panel-body panel-height">
+      <table class="table table-striped table-responsive table-bordered">
+       <thead>
+        <h6>Transactions</h6>
+        <tr>
+          <th>id</th>
+          <th>date/time</th>
+          <th>email</th>
+          <th>txid</th>
+          <th>from</th>
+          <th>to</th>
+          <th>exchange rate</th>
+          <th>exchange fee</th>
+          <th>status</th>
+        </tr>
+       </thead>
+       <tbody>
+        <% @transactions.each do |transaction| %>
+          <tr>
+            <td><%= transaction.id %></td>
+            <td><%= transaction.created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
+            <td><%= transaction.email %></td>
+            <td><%= transaction.txid %></td>
+            <td><%= transaction.base %></td>
+            <td><%= transaction.target %></td>
+            <td><%= transaction.exchange_rate %></td>
+            <td><%= transaction.exchange_fee %></td>
+            <td><%= transaction.status %></td>
+          </tr>
+        <% end %>
+       </tbody>
+      </table>
+    </div>
+  </div>
+</div>

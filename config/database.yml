@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: password
+  host: pg
+  pool: 5
+
+development:
+  <<: *default
+  database: btc_exchange_development
+
+test:
+  <<: *default
+  database: btc_exchange_test

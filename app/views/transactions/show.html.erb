@@ -1,0 +1,53 @@
+<div class="container" data-app="transactions-new">
+  <div class="row justify-content-center">
+    <div class="card" style="width: 50rem;">
+      <div class="card-header">
+        <h5>Checkout</h5>
+      </div>
+      <div class="card-body container">
+        <div class="row">
+          <div class="col-6">
+            <h6>You Send</h6>
+            <p><%= @transaction.amount_base %></p>
+          </div>
+          <div class="col-6">
+            <h6>You Get</h6>
+            <p><%= @transaction.amount_target %></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <h6>Exchange Fee</h6>
+            <p><%= @transaction.exchange_fee %></p>
+          </div>
+
+          <div class="col-6">
+            <h6>Network Fee</h6>
+            <p><%= present_btc(Transaction::NETWORK_FEE) %></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <h6>Recipient Address</h6>
+            <p><%= @transaction.address %></p>
+          </div>
+
+          <div class="col-6">
+            <h6>Exchange Rate</h6>
+            <p> 1 <%= @transaction.base %> ~ <%= @transaction.exchange_rate %> <%= @transaction.target %></p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <%= link_to "New Transaction",
+                        new_transaction_path,
+                        class: 'btn btn-primary mt-2' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

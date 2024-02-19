@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://blockstream.info/testnet/api/address/mjrFHUTszcjByUjVQ7gRiB2BVkyJUNe6NS/utxo
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - blockstream.info
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 19 Feb 2024 15:48:53 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '255'
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - public, max-age=10
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-total-results
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"txid":"29234c0e998caff99d218bce9eed39cbaf40aa1d8d6ddbe1dee423e3c8f0db87","vout":1,"status":{"confirmed":true,"block_height":2578690,"block_hash":"000000000000000843ed4d147e17fd206951452e8e716347ac49bb54e32e520e","block_time":1708349282},"value":95871}]'
+  recorded_at: Mon, 19 Feb 2024 15:48:54 GMT
+recorded_with: VCR 6.2.0
