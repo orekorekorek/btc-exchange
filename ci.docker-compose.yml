@@ -4,10 +4,6 @@ services:
   app:
     build: .
     command: bundle exec rails s -p 3000 -b 0.0.0.0
-    ports:
-       - "3000:3000"
-    volumes:
-       - .:/app
     restart: unless-stopped
     stdin_open: true
     tty: true
@@ -17,7 +13,5 @@ services:
   pg:
     image: postgres
     restart: unless-stopped
-    volumes:
-       - ./tmp/db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password

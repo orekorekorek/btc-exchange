@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run specs
-      run: docker compose run app bundle exec rspec
+      run: docker compose -f ci.docker-compose.yml run app bundle exec rspec
