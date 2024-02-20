@@ -8,14 +8,18 @@ export const toggleRate = (el) => {
 
   const updateTarget = () => {
     const baseInBtc = (1 - exchangeFeePercentage) * +base.value * +exchangeRate.value - networkFee
-    target.value = baseInBtc.toFixed(8).toLocaleString({useGrouping:false})
+    if (baseInBtc > 0) {
+      target.value = baseInBtc.toFixed(8).toLocaleString({useGrouping:false})
+    } else {
+      target.value = 0
+    }
     const fee = exchangeFeePercentage * +base.value * +exchangeRate.value
-    exchangeFee.value = fee.toFixed(8).toLocaleString('fullwide', {useGrouping:false})
+    exchangeFee.value = fee.toFixed(8).toLocaleString({useGrouping:false})
   }
 
   const updateBase = () => {
     const targetInUst = (+target.value + networkFee) / ((1 - exchangeFeePercentage) * +exchangeRate.value)
-    base.value = parseFloat(+targetInUst).toFixed(2)
+    base.value = +targetInUst.toFixed(2).toLocaleString({useGrouping:false})
     const fee = exchangeFeePercentage * +base.value * +exchangeRate.value
     exchangeFee.value = fee.toFixed(8).toLocaleString('fullwide', {useGrouping:false})
   }

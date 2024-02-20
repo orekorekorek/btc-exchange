@@ -9,9 +9,3 @@ const el = document.querySelector(transactions_query)
 if (el) {
   toggleRate(el)
 }
-
-// const initialize = (el) => {
-//   init(el)
-// }
-
-// export { initialize }

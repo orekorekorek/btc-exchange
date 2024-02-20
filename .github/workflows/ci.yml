@@ -1,4 +1,4 @@
-name: CI Image
+name: CI
 
 on:
   push:
@@ -7,9 +7,16 @@ on:
     branches: [ "master" ]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker Container
+        run: docker build .
+
   rspec:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Run specs
+    - name: Run Specs
       run: docker compose -f ci.docker-compose.yml run app bundle exec rspec
