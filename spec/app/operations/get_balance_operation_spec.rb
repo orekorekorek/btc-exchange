@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe GetBalanceOperation do
-  before do
+  subject(:call) { described_class.call('mjrFHUTszcjByUjVQ7gRiB2BVkyJUNe6NS') }
+
+  around do |example|
     VCR.use_cassette('get_utxos') do
-      @balance = described_class.call('mjrFHUTszcjByUjVQ7gRiB2BVkyJUNe6NS')
+      example.run
     end
   end
 
   describe '#call' do
     it 'returns balance by address as sum of utxos values' do
-      expect(@balance).to be_a(Float)
+      expect(call).to be_a(Float)
     end
   end
 end
