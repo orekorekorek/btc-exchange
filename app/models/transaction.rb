@@ -4,6 +4,4 @@ class Transaction < ApplicationRecord
   MAX_USDT_PER_TRANSACTION = 30
 
   enum status: { fail: 0, success: 1 }
-
-  scope :success, -> { where(status: 'success') }
 end
