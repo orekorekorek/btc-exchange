@@ -2,7 +2,7 @@ class SendCoinsOperation < BaseOperation
   include Bitcoin::Builder
 
   def initialize(private_key, recipient, amount)
-    @key = Bitcoin::Key.new(private_key)
+    @key = Bitcoin::Key.from_base58(private_key)
     @address = @key.addr
     @balance = GetBalanceOperation.(@address)
     @recipient = recipient

@@ -5,7 +5,7 @@ RSpec.describe TransactionCreateForm, type: :model do
 
   around do |example|
     env_key = ENV['WALLET_PRIVATE_KEY']
-    ENV['WALLET_PRIVATE_KEY'] = '7cfbcb519318b7b0960e03fcfc346e6dd5bf740da58070f341630d9ea3a0af82'
+    ENV['WALLET_PRIVATE_KEY'] = 'cRmerC6e29tDiepNnNzFJN6PJuxXedf9CZFJYBk8PzAp3wXeDnno'
 
     VCR.use_cassette('create_transaction') do
       example.run
